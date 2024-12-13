@@ -1,5 +1,6 @@
 <script lang="ts">
   import { type Writable } from 'svelte/store'
+  import Button from './Button.svelte'
 
   interface Props {
     count: Writable<number>
@@ -11,8 +12,8 @@
 <div class="container">
   <p class="border-2 border-indigo-500">Oberlay Current count: <b>{$count}</b></p>
   <div>
-    <button onclick={() => ($count -= 1)}>-</button>
-    <button onclick={() => ($count += 1)}>+</button>
+    <Button onClick={() => ($count -= 1)}>-</Button>
+    <Button onClick={() => ($count += 1)}>+</Button>
   </div>
 </div>
 

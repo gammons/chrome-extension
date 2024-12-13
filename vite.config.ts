@@ -13,7 +13,7 @@ export default defineConfig({
     port: 5173,
     strictPort: true,
     hmr: {
-      ientPort: 5173
+      clientPort: 5173
     }
   },
   resolve: {
