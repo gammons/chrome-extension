@@ -10,7 +10,7 @@
 </script>
 
 <div class="container">
-  <p class="border-2 border-indigo-500">Oberlay Current count: <b>{$count}</b></p>
+  <p class="border-2 border-indigo-500">Current count: <b>{$count}</b></p>
   <div>
     <Button onClick={() => ($count -= 1)}>-</Button>
     <Button onClick={() => ($count += 1)}>+</Button>
