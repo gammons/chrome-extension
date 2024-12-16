@@ -1,10 +1,7 @@
-import { count } from '../storage'
+import { user } from '../storage'
 
 // Content scripts
 // https://developer.chrome.com/docs/extensions/mv3/content_scripts/
-
-// Some JS on the page
-count.subscribe(console.log)
 
 console.log('Content script loaded')
 
