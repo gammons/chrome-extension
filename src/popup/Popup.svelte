@@ -5,17 +5,26 @@
   import Results from './Results.svelte'
 
   let foundEmails = []
-  for (let i = 0; i < 100; i++) {
-    foundEmails.push('grant@grant.dev')
-  }
+  // for (let i = 0; i < 100; i++) {
+  //   foundEmails.push('grant@grant.dev')
+  // }
 
   const onFindEmails = () => {
     console.log('onFindEmails')
 
-    chrome.runtime.sendMessage({ type: 'greet' }, (response) => {
-      console.log('got response', response)
-      console.log('Response from background script:', response.reply)
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      console.log('tabs', tabs)
+      chrome.tabs.sendMessage(tabs[0].id, { action: 'findEmails' }, (response) => {
+        console.log('got response', response)
+        console.log('Response from content script:', response.mails)
+        $: foundEmails = response.mails
+      })
     })
+
+    // chrome.runtime.sendMessage({ type: 'findEmails' }, (response) => {
+    //   console.log('got response', response)
+    //   console.log('Response from background script:', response.emails)
+    // })
     // chrome.rumtime.sendMessage({ action: 'findEmails' })
   }
 </script>
