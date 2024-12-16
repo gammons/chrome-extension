@@ -11,6 +11,12 @@
 
   const onFindEmails = () => {
     console.log('onFindEmails')
+
+    chrome.runtime.sendMessage({ type: 'greet' }, (response) => {
+      console.log('got response', response)
+      console.log('Response from background script:', response.reply)
+    })
+    // chrome.rumtime.sendMessage({ action: 'findEmails' })
   }
 </script>
 
@@ -41,6 +47,7 @@
 <style>
   #body {
     width: 640px;
+    min-height: 440px;
     display: flex;
     overflow: hidden;
     flex-direction: column;
