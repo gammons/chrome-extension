@@ -5,18 +5,22 @@
   import FindEmails from './FindEmails.svelte'
   import { user } from '../storage'
 
-  console.log('user = ', $user)
-
-  user.subscribe((value) => {
-    console.log('user value = ', value)
-  })
+  let token
 
   const onLogin = () => {
-    console.log('onLogin')
-    $user = { name: 'John Doe' }
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.tabs.sendMessage(tabs[0].id, { action: 'login' }, (response) => {
+        if (response.token) {
+          $: token = response.token
+          user.set({ token: response.token })
+        }
+      })
+    })
+  }
 
-    // open a tab to truelist.io login page
-    chrome.tabs.create({ url: 'https://app.truelist.io/login' })
+  const onLogout = () => {
+    user.set({})
+    $: token = null
   }
 </script>
 
@@ -27,13 +31,17 @@
       <span class="ml-2 mr-4 text-xl font-semibold text-gray-700">Truelist.io</span>
     </div>
 
-    <Button onClick={onLogin}>Login</Button>
+    {#if token}
+      <Button onClick={onLogout}>Logout2</Button>
+      <p>you are logged in</p>
+    {:else}
+      <Button onClick={onLogin}>Login2</Button>
+    {/if}
   </nav>
 </div>
 
 <style>
   #body {
-    border: 1px solid red;
     width: 640px;
     min-height: 840px;
     display: flex;
