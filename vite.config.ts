@@ -21,7 +21,6 @@ export default defineConfig({
       '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
       '~bootstrap-icons': path.resolve(__dirname, 'node_modules/bootstrap-icons'),
       '@': path.resolve(__dirname, 'src'),
-      '@app': path.resolve(__dirname, 'src/routes/(app)'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@lib': path.resolve(__dirname, 'src/lib'),
       '@data': path.resolve(__dirname, 'src/data'),

@@ -21,21 +21,21 @@ export default defineManifest(async (env) => ({
   content_scripts: [
     {
       matches: ['https://*/*'],
-      js: ['src/content/index.ts']
+      js: ['src/views/content/index.ts']
     }
   ],
   background: {
-    service_worker: 'src/background/index.ts'
+    service_worker: 'src/views/background/index.ts'
   },
   options_ui: {
-    page: 'src/options/options.html',
+    page: 'src/views/options/options.html',
     open_in_tab: false
   },
   side_panel: {
-    default_path: 'src/sidepanel/sidepanel.html'
+    default_path: 'src/views/sidepanel/sidepanel.html'
   },
   action: {
-    default_popup: 'src/popup/popup.html',
+    default_popup: 'src/views/popup/popup.html',
     default_icon: {
       '16': 'src/assets/icons/icon-16.png',
       '32': 'src/assets/icons/icon-32.png',

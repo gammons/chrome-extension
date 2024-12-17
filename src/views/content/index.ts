@@ -1,5 +1,5 @@
 // Content script
-import { user } from '../storage'
+import { user } from '../../storage'
 
 // Content scripts
 // https://developer.chrome.com/docs/extensions/mv3/content_scripts/
@@ -27,7 +27,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       return
     }
 
-    sendResponse({ token: window.localStorage.getItem('token') })
+    const token = window.localStorage.getItem('token')
+    // token has double quotes around it which we must remove
+    sendResponse({ token: token?.replace(/"/g, '') })
   }
 })
 

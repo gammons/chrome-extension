@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Button from '../components/Button.svelte'
-  import Logo from '../components/Logo.svelte'
+  import Button from '@components/Button.svelte'
+  import Logo from '@components/Logo.svelte'
   import Results from './Results.svelte'
 
   let foundEmails = []

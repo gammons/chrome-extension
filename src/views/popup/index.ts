@@ -1,8 +1,7 @@
 import { mount } from 'svelte'
-import Options from '../components/Options.svelte'
 import Popup from './Popup.svelte'
-import { count } from '../storage'
-import '../styles.css'
+import { count } from '@/storage.ts'
+import '@/styles.css'
 
 // Action popup
 // https://developer.chrome.com/docs/extensions/reference/action/
