@@ -7,16 +7,12 @@
   export let classType = 'primary'
   export let href = null
 
-  console.log('onClick = ', onClick)
-
   const handleClick = () => {
-    console.log('handleClick')
     if (href) {
       window.location = href
       return
     }
     if (onClick) {
-      console.log('onclick')
       onClick()
     }
   }
