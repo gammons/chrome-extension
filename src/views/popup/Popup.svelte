@@ -3,11 +3,10 @@
   import Logo from '@components/Logo.svelte'
   import Options from '@components/Options.svelte'
   import FindEmails from './FindEmails.svelte'
+  import Tabs from './Tabs.svelte'
 
   import ApiBackend from '@data/backend/apiBackend'
-  import { user } from '@/storage'
-
-  console.log('$user', $user)
+  import { user, currentRoute } from '@/storage'
 
   const onLogin = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -36,6 +35,8 @@
       <Logo className="h-8 w-auto" />
       <span class="ml-2 mr-4 text-xl font-semibold text-gray-700">Truelist.io</span>
     </div>
+
+    <Tabs />
 
     {#if $user.token}
       <Button onClick={onLogout}>Logout</Button>
