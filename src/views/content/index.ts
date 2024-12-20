@@ -13,8 +13,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
   if (request.action === 'findEmails') {
     const emails = findEmails()
-    // Send the found emails back to the background or popup
-    sendResponse({ mails: emails })
+    const emailHashes = emails.map((email) => {
+      return {
+        email: email
+      }
+    })
+    sendResponse({ emails: emailHashes })
   }
 
   if (request.action === 'login') {
@@ -37,7 +41,7 @@ const findEmails = () => {
   console.log('finding emails')
   const htmlSource = document.documentElement.innerHTML
   const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g
-  const emails = htmlSource.match(emailRegex) || []
+  let emails = htmlSource.match(emailRegex) || []
   return [...new Set(emails)] // Remove duplicates
 }
 

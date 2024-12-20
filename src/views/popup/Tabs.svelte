@@ -18,8 +18,8 @@
           >Verify Single</a
         >
         <a
-          on:click|preventDefault={() => currentRoute.set('verify-page')}
-          class={`cursor-pointer w-1/3 border-b-2 px-1 py-4 text-center text-sm font-medium ${route === 'verify-page' ? selectedCss : defaultCss}`}
+          on:click|preventDefault={() => currentRoute.set('verify-on-page')}
+          class={`cursor-pointer w-1/3 border-b-2 px-1 py-4 text-center text-sm font-medium ${route === 'verify-on-page' ? selectedCss : defaultCss}`}
           >Verify on Page</a
         >
         <a

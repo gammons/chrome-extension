@@ -32,9 +32,9 @@
   }
 </script>
 
-<pre>User = {JSON.stringify($user)}</pre>
+<h2 class="text-base font-semibold leading-7 text-gray-900 mt-4">Verify a single email</h2>
 
-<div class="p-4">
+<div class="mt-3">
   <form class="w-full md:w-3/5" on:submit={onVerify}>
     <div class="flex gap-x-4">
       <label for="email-address" class="sr-only">Email address</label>

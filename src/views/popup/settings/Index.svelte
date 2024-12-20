@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from '@components/Button.svelte'
+  import ApiBackend from '@data/backend/apiBackend'
   import { user } from '@/storage'
 
   const onLogin = () => {
@@ -23,11 +24,14 @@
   }
 </script>
 
-<p>Settings</p>
-
-{#if $user.token}
-  <Button onClick={onLogout}>Logout</Button>
-  <p>you are logged in as {$user.name}</p>
-{:else}
-  <Button onClick={onLogin}>Login</Button>
-{/if}
+<main class="bg-white p-4">
+  <h2 class="text-base font-semibold leading-7 text-gray-900">Login settings</h2>
+  {#if $user.token}
+    <p class="mt-1 leading-6">You are logged in as {$user.name}</p>
+    <div class="mt-3">
+      <Button onClick={onLogout}>Logout</Button>
+    </div>
+  {:else}
+    <Button onClick={onLogin}>Login</Button>
+  {/if}
+</main>
