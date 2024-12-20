@@ -51,4 +51,4 @@ export function persistentStore<T>(key: string, initialValue: T): Writable<T> {
 
 export const count = persistentStore('count', 10)
 export const user = persistentStore('user', {})
-export const currentRoute = persistentStore('current-route', '')
+export const currentRoute = persistentStore('current-route', 'verify-single')

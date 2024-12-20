@@ -1,5 +1,5 @@
 import { mount } from 'svelte'
-import Popup from './Popup.svelte'
+import Index from './Index.svelte'
 import { count } from '@/storage.ts'
 import '@/styles.css'
 
@@ -10,7 +10,7 @@ function render() {
   const target = document.getElementById('app')
 
   if (target) {
-    mount(Popup, { target, props: { count } })
+    mount(Index, { target, props: { count } })
   }
 }
 
